@@ -342,9 +342,15 @@ namespace achievementComputing
                 string scoreItem = sheet.Cells[courseTable.startRow + i, courseTable.startCol - 1].Text;
                 int scoreItemCol = findColOfScoreItemFromScoreTable(scoreItem);
                 string f = string.Format("AVERAGE(R[2]C:R[{0}]C)", scoreTable.height + 1);
-                sheet.Cells[meanScoreTable.startRow, scoreItemCol].FormulaR1C1 = f;
-            }
-        }
+				sheet.Cells[meanScoreTable.startRow, scoreItemCol].FormulaR1C1 = f;
+                sheet.Cells[meanScoreTable.startRow - 2, scoreItemCol].FormulaR1C1 = "R[2]C/R[1]C*100";
+                if (sheet.Cells[meanScoreTable.startRow - 1, scoreItemCol].Text == "")
+                {
+                    showErrorInfo(sheet.Cells[meanScoreTable.startRow - 1, scoreItemCol].Address
+                        + " 没有设置考核项的满分值，会出现除零错误。");
+				}
+			}
+		}
         int findColOfScoreItemFromScoreTable(string scoreItem)
 		{
             int scoreItemCol = findColFromMeanScoreTable(scoreItem);
@@ -404,7 +410,7 @@ namespace achievementComputing
                 string scoreItem = sheet.Cells[courseTable.startRow + i, courseTable.startCol - 1].Text;
                 int scoreItemCol = findColOfScoreItemFromScoreTable(scoreItem);
                 string f1 = string.Format("+R[-{0}]C*R{1}C{2}",
-                    courseTable.height + 1 - i, meanScoreTable.startRow, scoreItemCol);
+                    courseTable.height + 1 - i, meanScoreTable.startRow-2, scoreItemCol);
                 f = f + f1;
             }
             f = f.Substring(1);
