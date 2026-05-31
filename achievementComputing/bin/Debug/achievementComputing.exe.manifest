@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="achievementComputing.exe" size="18360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="achievementComputing.exe" size="18944">
       <assemblyIdentity name="achievementComputing" version="0.2.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nJQu0ukyNWAB7erYLnrVopbQA9eA79t5ameBRVqAdN0=</dsig:DigestValue>
+        <dsig:DigestValue>cfAdaCWkp9iBRPcYsCxOMYGaeW1ium7joBqom8609BE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
