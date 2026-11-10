@@ -390,6 +390,12 @@ namespace achievementComputing
 		}
 		void setMeanScoreFormula()
 		{
+			//清除平均成绩行第一列之后的所有公式
+			for (int c = 2; c <= sheetColCount; c++)
+			{
+				sheet.Cells[meanScoreTable.startRow, c].Formula = null;
+				sheet.Cells[meanScoreTable.startRow, c].Value = null;
+			}
 			for (int i = 0; i < courseTable.height; i++)
 			{
 				string scoreItem = sheet.Cells[courseTable.startRow + i, courseTable.startCol - 1].Text;
